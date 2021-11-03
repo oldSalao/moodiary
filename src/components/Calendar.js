@@ -6,7 +6,8 @@ import CalendarHeaderContainer from "../container/CalendarHaederContainer";
 const CalendarBox = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 30%;
+  min-width: 580px;
   border: 1px solid black;
   border-radius: 30px;
   box-sizing: border-box;

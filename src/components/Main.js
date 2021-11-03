@@ -2,6 +2,8 @@ import Calendar from "./Calendar";
 import rightArrow from "../image/keyboard-right-arrow-button.png";
 import leftArrow from "../image/keyboard-left-arrow-button.png";
 import styled from "styled-components";
+import { CircularProgress } from "@mui/material";
+import { useSelector } from "react-redux";
 
 const MainBox = styled.div`
   display: flex;
@@ -21,6 +23,7 @@ const RightButtonBox = styled.div`
 `;
 
 const Main = ({ onClickPrev, onClickNext }) => {
+  const loading = useSelector((state) => state.date.loading);
   return (
     <MainBox>
       <LeftButtonBox onClick={onClickPrev}>
@@ -38,6 +41,16 @@ const Main = ({ onClickPrev, onClickNext }) => {
           style={{ width: "50px", height: "50px" }}
         />
       </RightButtonBox>
+      {loading && (
+        <div
+          style={{
+            position: "absolute",
+            alignSelf: "center",
+          }}
+        >
+          <CircularProgress />
+        </div>
+      )}
     </MainBox>
   );
 };

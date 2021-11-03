@@ -4,9 +4,10 @@ import "moment/locale/ko";
 
 const initialState = {
   now: new Date().getTime(),
+  loading: false,
 };
 
-export const dateSlice = createSlice({
+export const calendarSlice = createSlice({
   name: "date",
   initialState,
   reducers: {
@@ -16,9 +17,12 @@ export const dateSlice = createSlice({
     nextMonth: (state) => {
       state.now = moment(state.now).add(1, "months").toDate().getTime();
     },
+    toggleLoading: (state) => {
+      state.loading = !state.loading;
+    },
   },
 });
 
-export const { prevMonth, nextMonth } = dateSlice.actions;
+export const { prevMonth, nextMonth, toggleLoading } = calendarSlice.actions;
 
-export default dateSlice.reducer;
+export default calendarSlice.reducer;

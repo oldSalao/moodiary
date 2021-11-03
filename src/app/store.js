@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import loginReducer from "../features/loginSlice";
-import dateReducer from "../features/dateSlice";
+import dateReducer from "../features/calendarSlice";
 import joinReducer from "../features/joinSlice";
 
 export const store = configureStore({

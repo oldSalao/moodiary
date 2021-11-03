@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { prevMonth, nextMonth } from "../features/dateSlice";
+import { prevMonth, nextMonth } from "../features/calendarSlice";
 import Main from "../components/Main";
 
 const MainContainer = () => {

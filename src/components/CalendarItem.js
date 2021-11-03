@@ -1,6 +1,6 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import CircularProgress from "@mui/material/CircularProgress";
 
 const CalendarItemBox = styled.div`
   display: flex;
@@ -10,13 +10,13 @@ const CalendarItemBox = styled.div`
   height: 80px;
 `;
 
-const CalendarItem = ({ day, date, weekDay, isNow, posted, loading }) => {
+const CalendarItem = ({ day, date, isNow, posted }) => {
+  const loading = useSelector((state) => state.date.loading);
+
   if (loading) {
     return (
       <CalendarItemBox>
-        <div>
-          <CircularProgress />
-        </div>
+        <div></div>
       </CalendarItemBox>
     );
   }
@@ -45,7 +45,6 @@ const CalendarItem = ({ day, date, weekDay, isNow, posted, loading }) => {
           <div>{day}</div>
         </div>
       </Link>
-      {/* <div style={style}>{`${weekDay}요일`}</div> */}
     </CalendarItemBox>
   );
 };

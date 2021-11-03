@@ -40,11 +40,9 @@ const CalendarHeader = ({ now, onClickPrev, onClickNext }) => {
   return (
     <CalendarHeaderBox>
       <MonthBox>
-        {/* <button onClick={onClickPrev}>-</button> */}
         <div style={{ fontSize: "25px" }}>
           {now.clone().format("YYYY년 M월")}
         </div>
-        {/* <button onClick={onClickNext}>+</button> */}
       </MonthBox>
       <WeekDaysBox>
         <WeekDayBox>

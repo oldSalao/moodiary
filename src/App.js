@@ -1,7 +1,6 @@
 import LoginContainer from "./container/LoginContainer";
 import JoinContainer from "./container/JoinContainer";
 import { Route } from "react-router";
-import Calendar from "./components/Calendar";
 import MyPage from "./components/MyPage";
 import Post from "./components/Post";
 import PostList from "./components/PostList";
