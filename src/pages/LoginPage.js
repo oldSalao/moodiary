@@ -1,5 +1,7 @@
+import LoginContainer from "../container/LoginContainer";
+
 const LoginPage = () => {
-  return <div></div>;
+  return <LoginContainer />;
 };
 
 export default LoginPage;

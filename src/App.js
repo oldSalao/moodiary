@@ -7,6 +7,8 @@ import PostList from "./components/PostList";
 import AllPost from "./components/AllPost";
 import styled from "styled-components";
 import MainContainer from "./container/MainContainer";
+import LoginPage from "./pages/LoginPage";
+import JoinPage from "./pages/JoinPage";
 
 const AppBox = styled.div`
   display: flex;
@@ -19,8 +21,8 @@ const AppBox = styled.div`
 const App = () => {
   return (
     <AppBox>
-      <Route path="/" component={LoginContainer} exact={true} />
-      <Route path="/join" component={JoinContainer} exact={true} />
+      <Route path="/" component={LoginPage} exact={true} />
+      <Route path="/join" component={JoinPage} exact={true} />
       <Route path="/allPost" component={AllPost} />
       <Route path="/post" component={Post} />
       <Route path="/myPage" component={MyPage} exact={true} />
