@@ -1,5 +1,9 @@
+import styled from "styled-components";
+
+const FooterBox = styled.div``;
+
 const Footer = () => {
-  return <div></div>;
+  return <FooterBox>푸터</FooterBox>;
 };
 
 export default Footer;
