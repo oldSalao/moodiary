@@ -1,14 +1,12 @@
-import LoginContainer from "./container/LoginContainer";
-import JoinContainer from "./container/JoinContainer";
 import { Route } from "react-router";
 import MyPage from "./components/MyPage";
 import Post from "./components/Post";
 import PostList from "./components/PostList";
 import AllPost from "./components/AllPost";
 import styled from "styled-components";
-import MainContainer from "./container/MainContainer";
 import LoginPage from "./pages/LoginPage";
 import JoinPage from "./pages/JoinPage";
+import MainPage from "./pages/MainPage";
 
 const AppBox = styled.div`
   display: flex;
@@ -26,7 +24,7 @@ const App = () => {
       <Route path="/allPost" component={AllPost} />
       <Route path="/post" component={Post} />
       <Route path="/myPage" component={MyPage} exact={true} />
-      <Route path="/main" component={MainContainer} />
+      <Route path="/main" component={MainPage} />
       <Route path="/postList" component={PostList} />
     </AppBox>
   );

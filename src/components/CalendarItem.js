@@ -7,7 +7,7 @@ const CalendarItemBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80px;
+  height: 60px;
 `;
 
 const CalendarItem = ({ day, date, isNow, posted }) => {
