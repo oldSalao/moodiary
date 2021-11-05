@@ -6,7 +6,7 @@ const CalendarBodyBox = styled.div`
   grid-template-columns: repeat(7, 1fr);
 `;
 
-const CalendarBody = ({ days, monthPosts, loading }) => {
+const CalendarBody = ({ days, monthPosts }) => {
   return (
     <CalendarBodyBox>
       {days.map((day, idx) => (
