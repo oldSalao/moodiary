@@ -1,11 +1,9 @@
 import axios from "axios";
-import QueryString from "qs";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const PostList = ({ location }) => {
-  const query = QueryString.parse(location.search, { ignoreQueryPrefix: true });
+const PostList = ({ query }) => {
   const { date } = query;
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState(null);
