@@ -70,17 +70,24 @@ const Login = ({
           placeholder="비밀번호를 입력하세요."
           onChange={onChangePassword}
         />
-        <ButtonBox onClick={onClickLogin}>
-          {loading ? <CircularProgress size="20px" /> : "로그인"}
-          {error && (
-            <>
-              <br />
-              <span style={{ color: "red", fontSize: "small" }}>
-                로그인 실패
-              </span>
-            </>
-          )}
-        </ButtonBox>
+        {loading ? (
+          <ButtonBox onClick={onClickLogin}>
+            <CircularProgress size="20px" />
+          </ButtonBox>
+        ) : (
+          <ButtonBox onClick={onClickLogin}>
+            로그인
+            {error && (
+              <>
+                <br />
+                <span style={{ color: "red", fontSize: "small" }}>
+                  로그인 실패
+                </span>
+              </>
+            )}
+          </ButtonBox>
+        )}
+
         <Link to="/join">
           <ButtonBox>회원가입</ButtonBox>
         </Link>
