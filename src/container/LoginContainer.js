@@ -24,7 +24,6 @@ const LoginContainer = () => {
     e.preventDefault();
     const fetchLogin = async () => {
       try {
-        setError(null);
         setLoading(true);
 
         const response = await axios.post(

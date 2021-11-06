@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import { Link, Redirect } from "react-router-dom";
 import styled from "styled-components";
 
@@ -6,30 +7,42 @@ const LoginBox = styled.div`
   flex-direction: column;
   align-items: center;
   width: 15%;
-  height: 35%;
   max-width: 200px;
-  max-height: 250px;
-  justify-content: space-between;
 `;
 
 const LoginHeaderBox = styled.span`
   font-size: 35px;
   font-weight: bolder;
+  padding-bottom: 1rem;
 `;
 
 const LoginFormBox = styled.form`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  max-height: 150px;
-  height: 100%;
-  & input {
-    box-sizing: border-box;
-    width: 100%;
-  }
-  & button {
-    width: 100%;
-  }
+  justify-content: space-between; */
+`;
+
+const InputBox = styled.input`
+  width: 100%;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+  margin-top: 1rem;
+  outline: none;
+`;
+
+const ButtonBox = styled.button`
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  padding: 0.25rem 1rem;
+  color: black;
+  outline: none;
+  cursor: pointer;
 `;
 
 const Login = ({
@@ -39,12 +52,6 @@ const Login = ({
   onChangePassword,
   onClickLogin,
 }) => {
-  if (loading) {
-    return <div>로딩중...</div>;
-  }
-  if (error) {
-    return <div>로그인실패</div>;
-  }
   if (localStorage.getItem("token")) {
     return <Redirect to={"/myPage"} />;
   }
@@ -53,22 +60,29 @@ const Login = ({
     <LoginBox>
       <LoginHeaderBox>Login</LoginHeaderBox>
       <LoginFormBox>
-        <input
+        <InputBox
           type="text"
           placeholder="아이디를 입력하세요."
           onChange={onChangeUserName}
         />
-        <input
-          type="text"
+        <InputBox
+          type="password"
           placeholder="비밀번호를 입력하세요."
           onChange={onChangePassword}
         />
-        <button onClick={onClickLogin}>로그인</button>
+        <ButtonBox onClick={onClickLogin}>
+          {loading ? <CircularProgress size="20px" /> : "로그인"}
+          {error && (
+            <>
+              <br />
+              <span style={{ color: "red", fontSize: "small" }}>
+                로그인 실패
+              </span>
+            </>
+          )}
+        </ButtonBox>
         <Link to="/join">
-          <button>회원가입</button>
-        </Link>
-        <Link to="/calendar">
-          <button>달력</button>
+          <ButtonBox>회원가입</ButtonBox>
         </Link>
       </LoginFormBox>
     </LoginBox>
