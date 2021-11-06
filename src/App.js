@@ -1,12 +1,12 @@
 import { Route } from "react-router";
 import MyPage from "./components/MyPage";
-import Post from "./components/Post";
 import AllPost from "./components/AllPost";
 import styled from "styled-components";
 import LoginPage from "./pages/LoginPage";
 import JoinPage from "./pages/JoinPage";
 import MainPage from "./pages/MainPage";
 import PostListPage from "./pages/PostListPage";
+import PostPage from "./pages/PostPage";
 
 const AppBox = styled.div`
   display: flex;
@@ -22,7 +22,7 @@ const App = () => {
       <Route path="/" component={LoginPage} exact={true} />
       <Route path="/join" component={JoinPage} exact={true} />
       <Route path="/allPost" component={AllPost} />
-      <Route path="/post" component={Post} />
+      <Route path="/post" component={PostPage} />
       <Route path="/myPage" component={MyPage} exact={true} />
       <Route path="/main" component={MainPage} />
       <Route path="/postList" component={PostListPage} />

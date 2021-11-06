@@ -1,10 +1,8 @@
 import axios from "axios";
-import QueryString from "qs";
 import { useEffect } from "react";
 import { useState } from "react";
 
-const Post = ({ location }) => {
-  const query = QueryString.parse(location.search, { ignoreQueryPrefix: true });
+const Post = ({ query }) => {
   const postId = query.postId;
   const [loading, setLoading] = useState(null);
   const [post, setPost] = useState(null);
