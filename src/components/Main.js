@@ -4,6 +4,7 @@ import leftArrow from "../image/keyboard-left-arrow-button.png";
 import styled from "styled-components";
 import { CircularProgress } from "@mui/material";
 import { useSelector } from "react-redux";
+import { Redirect } from "react-router";
 
 const MainBox = styled.div`
   display: flex;
@@ -24,6 +25,11 @@ const RightButtonBox = styled.div`
 
 const Main = ({ onClickPrev, onClickNext }) => {
   const loading = useSelector((state) => state.date.loading);
+
+  if (!localStorage.getItem("token")) {
+    return <Redirect to="/" />;
+  }
+
   return (
     <MainBox>
       <LeftButtonBox onClick={onClickPrev}>

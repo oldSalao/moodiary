@@ -53,7 +53,7 @@ const Login = ({
   onClickLogin,
 }) => {
   if (localStorage.getItem("token")) {
-    return <Redirect to={"/myPage"} />;
+    return <Redirect to={"/main"} />;
   }
 
   return (
