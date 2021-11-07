@@ -1,13 +1,12 @@
-import { CircularProgress } from "@mui/material";
+import { Skeleton } from "@mui/material";
 import styled from "styled-components";
+import Typography from "@mui/material/Typography";
 
 const PostBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 50%;
-  /* max-height: 350px; */
-  /* justify-content: space-between; */
 `;
 
 const PostHeaderBox = styled.div``;
@@ -45,7 +44,19 @@ const Post = ({ post, loading }) => {
   };
 
   if (loading) {
-    return <CircularProgress />;
+    return (
+      <PostBox>
+        <Typography variant="h2">
+          <Skeleton width={130} />
+        </Typography>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <Skeleton variant="circular" width="25px" height="25px" />
+          <Skeleton width={90} height={30} />
+        </div>
+        <hr style={{ width: "100%" }} />
+        <Skeleton variant="rectangular" width={200} height={150} />
+      </PostBox>
+    );
   }
 
   return (
