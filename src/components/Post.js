@@ -1,32 +1,11 @@
-import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
+// import axios from "axios";
+// import { useEffect } from "react";
+// import { useState } from "react";
+import { CircularProgress } from "@mui/material";
 
-const Post = ({ query }) => {
-  const postId = query.postId;
-  const [loading, setLoading] = useState(null);
-  const [post, setPost] = useState(null);
-
-  useEffect(() => {
-    const fetchPostList = async () => {
-      setLoading(true);
-      try {
-        axios.defaults.headers.common[
-          "Authorization"
-        ] = `Bearer ${localStorage.getItem("token")}`;
-        const response = await axios.get(`posts/${postId}`);
-        setPost(response.data);
-        setLoading(false);
-      } catch (e) {
-        console.log(e);
-        setLoading(false);
-      }
-    };
-    fetchPostList();
-  }, [postId]);
-
+const Post = ({ post, loading }) => {
   if (loading) {
-    return <div>로딩중</div>;
+    return <CircularProgress />;
   }
 
   return (
