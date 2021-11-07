@@ -6,6 +6,7 @@ const PostBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 30%;
   height: 50%;
 `;
 
@@ -20,7 +21,7 @@ const PostContentBox = styled.div`
 `;
 
 const PostButtonBox = styled.button`
-  width: 100%;
+  /* width: 100%; */
   border: none;
   border-radius: 4px;
   font-size: 1rem;
@@ -50,10 +51,10 @@ const Post = ({ post, loading }) => {
           <Skeleton width={130} />
         </Typography>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <Skeleton variant="circular" width="25px" height="25px" />
-          <Skeleton width={90} height={30} />
+          <Skeleton variant="circular" width={25} height={25} />
+          <Skeleton width={80} height={30} />
         </div>
-        <hr style={{ width: "100%" }} />
+        <hr style={{ width: "50%" }} />
         <Skeleton variant="rectangular" width={200} height={150} />
       </PostBox>
     );
@@ -67,7 +68,7 @@ const Post = ({ post, loading }) => {
       <PostMoodBox>
         {post && `${moodImoji[post.mood.toLowerCase()]} ${post.mood}`}
       </PostMoodBox>
-      <hr style={{ width: "100%" }} />
+      <hr style={{ width: "50%" }} />
       <PostContentBox>{post && post.memo}</PostContentBox>
       <PostButtonBox>수정</PostButtonBox>
       <PostButtonBox>삭제</PostButtonBox>
