@@ -1,49 +1,28 @@
-import axios from "axios";
-import { useState } from "react";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
-const PostList = ({ query }) => {
-  const { date } = query;
-  const [loading, setLoading] = useState(false);
-  const [posts, setPosts] = useState(null);
+const PostListBox = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
-  useEffect(() => {
-    const fetchPostList = async () => {
-      setLoading(true);
-      try {
-        axios.defaults.headers.common[
-          "Authorization"
-        ] = `Bearer ${localStorage.getItem("token")}`;
-        const response = await axios.get(
-          `posts/date?offset=0&limit=10&date=${date}`
-        );
-        setPosts(response.data.list);
-        setLoading(false);
-      } catch (e) {
-        console.log(e);
-        setLoading(false);
-      }
-    };
-    fetchPostList();
-  }, [date]);
-
+const PostList = ({ date, posts, loading }) => {
   if (loading) {
     return <div>로딩중</div>;
   }
 
   return (
-    <div>
-      <div>{date}</div>
+    <PostListBox>
+      <h2>{date}</h2>
       {posts &&
         posts.map((post) => {
           return (
             <Link key={post.postId} to={`/post?postId=${post.postId}`}>
-              {post.title}
+              <div>{post.title}</div>
             </Link>
           );
         })}
-    </div>
+    </PostListBox>
   );
 };
 
