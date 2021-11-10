@@ -1,7 +1,12 @@
 import WriteContainer from "../container/WriteContainer";
+import Layout from "../components/Layout";
 
 const WritePage = () => {
-  return <WriteContainer></WriteContainer>;
+  return (
+    <Layout>
+      <WriteContainer />
+    </Layout>
+  );
 };
 
 export default WritePage;
