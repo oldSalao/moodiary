@@ -1,6 +1,5 @@
 import { Skeleton } from "@mui/material";
 import styled from "styled-components";
-import Typography from "@mui/material/Typography";
 
 const PostBox = styled.div`
   display: flex;
@@ -47,12 +46,12 @@ const Post = ({ post, loading }) => {
   if (loading) {
     return (
       <PostBox>
-        <Typography variant="h2">
-          <Skeleton width={130} />
-        </Typography>
+        <h2>
+          <Skeleton variant="rectangular" width={130} height={32} />
+        </h2>
         <div style={{ display: "flex", alignItems: "center" }}>
           <Skeleton variant="circular" width={25} height={25} />
-          <Skeleton width={80} height={30} />
+          <Skeleton variant="rectangular" width={80} height={27} />
         </div>
         <hr style={{ width: "50%" }} />
         <Skeleton variant="rectangular" width={200} height={150} />
