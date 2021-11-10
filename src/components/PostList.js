@@ -22,6 +22,7 @@ const TitleBox = styled.div`
 
 const PostListButtonBox = styled.button`
   border: none;
+  width: 100%;
   border-radius: 4px;
   font-size: 1rem;
   font-weight: bold;
@@ -80,7 +81,9 @@ const PostList = ({ date, posts, loading }) => {
             );
           })}
       </PostListBodyBox>
-      <PostListButtonBox>추가</PostListButtonBox>
+      <Link to="/write">
+        <PostListButtonBox>추가</PostListButtonBox>
+      </Link>
     </PostListBox>
   );
 };

@@ -7,6 +7,7 @@ import JoinPage from "./pages/JoinPage";
 import MainPage from "./pages/MainPage";
 import PostListPage from "./pages/PostListPage";
 import PostPage from "./pages/PostPage";
+import WritePage from "./pages/WritePage";
 
 const AppBox = styled.div`
   display: flex;
@@ -26,6 +27,7 @@ const App = () => {
       <Route path="/myPage" component={MyPage} exact={true} />
       <Route path="/main" component={MainPage} />
       <Route path="/postList" component={PostListPage} />
+      <Route path="/write" component={WritePage} />
     </AppBox>
   );
 };

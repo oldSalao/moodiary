@@ -1,5 +1,5 @@
 const Write = () => {
-  return <Write></Write>;
+  return <div>글작성</div>;
 };
 
 export default Write;
